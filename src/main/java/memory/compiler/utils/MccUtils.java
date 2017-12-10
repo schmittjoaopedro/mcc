@@ -23,7 +23,7 @@ public class MccUtils {
     private static final String PRIVATE = "private";
     private static final String PUBLIC = "public";
     private static final String CLASS_REG_EXP = "\\s*(public|private)\\s+class\\s+(\\w+)\\s+((extends\\s+\\w+)|(implements\\s+\\w+( ,\\w+)*))?\\s*\\{";
-    private static final String DOT_COMMA = File.pathSeparator;
+    private static final String DOT_COMMA = ";";
     private static final String PACKAGE = "package";
 
     /**

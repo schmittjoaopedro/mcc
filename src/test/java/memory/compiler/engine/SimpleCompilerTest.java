@@ -22,8 +22,8 @@ public class SimpleCompilerTest {
     @Test
     public void simpleTest() throws Exception {
 
-        String sourceCode = "package weg.net; public class Teste { public String t() { return \"Hello World!\"; } };";
-        SourceClass sourceClass = new SourceClass("weg.net", "Teste", sourceCode);
+        String sourceCode = "package comp.test; public class Teste { public String t() { return \"Hello World!\"; } };";
+        SourceClass sourceClass = new SourceClass("comp.test", "Teste", sourceCode);
         SourceClassLoader classLoader = new SourceClassLoader(getClass().getClassLoader());
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
@@ -50,8 +50,8 @@ public class SimpleCompilerTest {
         SourceTask sourceTask = new SourceTask();
 
         for(int i = 0; i < 10; i++) {
-            String sourceCode = "package weg.net; public class Teste" + i + " { public String t(Integer val) { return val + \" - Hello World!\"; } };";
-            sourceTask.createSourceClass("weg.net", "Teste" + i, sourceCode);
+            String sourceCode = "package comp.test; public class Teste" + i + " { public String t(Integer val) { return val + \" - Hello World!\"; } };";
+            sourceTask.createSourceClass("comp.test", "Teste" + i, sourceCode);
         }
         MemoryClassCompiler compiler = new MemoryClassCompiler();
         compiler.checkAndCompile(sourceTask);
