@@ -1,0 +1,138 @@
+package teste;
+
+public class Teste {
+
+	Boolean bar = new Boolean("true"); // just do a Boolean bar = Boolean.TRUE;
+	Boolean buz = Boolean.valueOf(false); // just do a Boolean buz =
+											// Boolean.FALSE;
+
+	static {
+		// empty
+	}
+
+	Object baz;
+
+	Object bar() {
+		if (baz == null) { // baz may be non-null yet not fully created
+			synchronized (this) {
+				if (baz == null) {
+					baz = new Object();
+				}
+			}
+		}
+		return baz;
+	}
+
+	public void emptyCatchBlock() {
+		try {
+			FileInputStream fis = new FileInputStream("/tmp/bugger");
+		} catch (IOException ioe) {
+			// not good
+		}
+	}
+
+	void emptyIfStmt(int x) {
+		if (x == 0) {
+			// empty!
+		}
+	}
+
+	void emptyWhileStmt(int a, int b) {
+		while (a == b) {
+			// empty!
+		}
+	}
+
+	public void emptyTryBlock() {
+		try {
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void emptyFinallyBlock() {
+		try {
+			int x = 2;
+		} finally {
+			// empty!
+		}
+	}
+
+	public void emptySwitchStatements() {
+		int x = 2;
+		switch (x) {
+		// once there was code here
+		// but it's been commented out or something
+		}
+	}
+
+	public void jumbledIncrementer() {
+		for (int i = 0; i < 10; i++) {
+			for (int k = 0; k < 20; i++) {
+				System.out.println("Hello");
+			}
+		}
+	}
+
+	void forLoopShouldBeWhileLoop() {
+	  for (;true;) true; // No Init or Update part, may as well be: while (true)
+	 }
+
+	public String unnecessaryConversionTemporary(int x) {
+		// this wastes an object
+		String foo = new Integer(x).toString();
+		// this is better
+		return Integer.toString(x);
+	}
+
+	public int hashCode() {
+		// return some hash value
+	}
+
+	public String returnFromFinallyBlock() {
+		try {
+			throw new Exception("My Exception");
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			return "A. O. K."; // Very bad.
+		}
+	}
+
+	public void emptySynchronizedBlock() {
+		synchronized (this) {
+			// empty!
+		}
+	}
+
+	public void unnecessaryReturn() {
+		int x = 42;
+		return;
+	}
+
+	public void close() {
+		if (true) {
+			// ...
+		}
+	}
+
+	public void doit() {
+		// this is probably not what you meant to do
+		;
+		// the extra semicolon here this is not necessary
+		System.out.println("look at the extra semicolon");
+		;
+	}
+
+	private final void unnecessaryFinalModifier() {
+	}
+
+	void collapsibleIfStatements(boolean x, boolean y) {
+		if (x) {
+			if (y) {
+				// do stuff
+			}
+		}
+	}
+
+}
