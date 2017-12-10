@@ -21,6 +21,7 @@ public class CompilerErrorTest {
         sourceClass.setSourceCode("package test");
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
+        boolean throwError = false;
 
         try {
             compiler.compile(sourceClass);
@@ -41,7 +42,9 @@ public class CompilerErrorTest {
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getPosition(), 12);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getStartPosition(), 12);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+            throwError = true;
         }
+        Assert.assertTrue(throwError);
 
     }
 
@@ -53,6 +56,7 @@ public class CompilerErrorTest {
         sourceClass.setPackageName("teste");
         sourceClass.setClassName("Teste");
         sourceClass.setSourceCode("package teste; public class Teste { public void t() { return 2; } }");
+        boolean throwError = false;
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
         try {
@@ -69,7 +73,9 @@ public class CompilerErrorTest {
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getPosition(), 61);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getStartPosition(), 61);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+            throwError = true;
         }
+        Assert.assertTrue(throwError);
 
     }
 
@@ -97,6 +103,7 @@ public class CompilerErrorTest {
                         + "}\n";
 
         sourceClass.setSourceCode(code);
+        boolean throwError = false;
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
         try {
@@ -113,8 +120,9 @@ public class CompilerErrorTest {
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getPosition(), 173);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getStartPosition(), 173);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+            throwError = true;
         }
-
+        Assert.assertTrue(throwError);
     }
 
     @Test
@@ -127,6 +135,7 @@ public class CompilerErrorTest {
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
 
+        boolean throwError = false;
 
         try {
             compiler.compile(sourceTask);
@@ -149,9 +158,9 @@ public class CompilerErrorTest {
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getPosition(), 7);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getStartPosition(), 0);
             Assert.assertEquals(ex.getMessageCompiler().getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+            throwError = true;
         }
-
-
+        Assert.assertTrue(throwError);
     }
 
 }
