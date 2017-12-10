@@ -16,7 +16,7 @@ public class SourceClassLoader extends ClassLoader {
     /**
      * Create with parent class loader
      *
-     * @param classLoader
+     * @param classLoader the input class loader
      */
     public SourceClassLoader(ClassLoader classLoader) {
         super(classLoader);
@@ -25,8 +25,8 @@ public class SourceClassLoader extends ClassLoader {
     /**
      * Load a sourceClass using the byte code generated of SourceClass
      *
-     * @param sourceClass
-     * @return class
+     * @param sourceClass the input source class
+     * @return class the output class
      */
     @SuppressWarnings("rawtypes")
     public Class loadSourceClassLoader(SourceClass sourceClass) {

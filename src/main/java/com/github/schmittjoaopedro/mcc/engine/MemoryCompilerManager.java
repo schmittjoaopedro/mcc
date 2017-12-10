@@ -31,8 +31,8 @@ public class MemoryCompilerManager extends ForwardingJavaFileManager<JavaFileMan
     /**
      * Constructor
      *
-     * @param fileManager
-     * @param sourceJavaClass
+     * @param fileManager the input file manager
+     * @param sourceJavaClass the input source java class
      */
     protected MemoryCompilerManager(JavaFileManager fileManager, SourceTask sourceJavaClass) {
         super(fileManager);
@@ -43,14 +43,14 @@ public class MemoryCompilerManager extends ForwardingJavaFileManager<JavaFileMan
     /**
      * Method that intercept each class compilation. Will define the source code to be compiled.
      *
-     * @param location
-     * @param className
-     * @param kind
-     * @param sibling
+     * @param location the input location
+     * @param className the input class name
+     * @param kind the input kind
+     * @param sibling the input sibling
      *
-     * @return outputJavaClass
+     * @return outputJavaClass the output java class
      *
-     * @throws IOException
+     * @throws IOException throws a IOException
      */
     @Override
     public JavaFileObject getJavaFileForOutput(Location location, String className, JavaFileObject.Kind kind, FileObject sibling) throws IOException {

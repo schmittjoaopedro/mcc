@@ -35,8 +35,8 @@ public class MessageCompiler {
      * This class is immutable, this means that the attributes
      * can not be modified
      *
-     * @param message
-     * @param status
+     * @param message the input message
+     * @param status the input status
      */
     public MessageCompiler(String message, MessageStatus status) {
         super();
@@ -48,8 +48,8 @@ public class MessageCompiler {
      * This class is immutable, this means that the attributes
      * can not be modified, with diagnostic
      *
-     * @param message
-     * @param status
+     * @param message the input message
+     * @param status the input status
      */
     public MessageCompiler(String message, MessageStatus status, List<Diagnostic<? extends JavaFileObject>> diagnostics) {
         super();
@@ -59,19 +59,22 @@ public class MessageCompiler {
     }
 
     /**
-     * Only getters, a immutable object.
-     *
-     * GETTERS
+     * @return message the output message
      */
-
     public String getMessage() {
         return message;
     }
 
+    /**
+     * @return status the output status
+     */
     public MessageStatus getStatus() {
         return status;
     }
 
+    /**
+     * @return diagnostics the output diagnostics
+     */
     public List<Diagnostic<? extends JavaFileObject>> getDiagnostics() {
         return diagnostics;
     }

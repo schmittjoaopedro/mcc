@@ -31,7 +31,7 @@ public class MemoryCompilerTask {
     /**
      * Constructor
      *
-     * @param provider
+     * @param provider the input provider
      */
     public MemoryCompilerTask(MemoryCompilerProvider provider) {
         this.compiler = new MemoryClassCompiler();
@@ -41,8 +41,8 @@ public class MemoryCompilerTask {
     /**
      * Constructor with class path
      *
-     * @param provider
-     * @param classpath
+     * @param provider the input provider
+     * @param classpath the input classpath
      */
     public MemoryCompilerTask(MemoryCompilerProvider provider, List<String> classpath) {
         this.compiler = new MemoryClassCompiler(classpath);
@@ -52,9 +52,9 @@ public class MemoryCompilerTask {
     /**
      * Create and execute a task to custom compiler with a single SourceClass
      *
-     * @param sourceClass
-     * @return sourceClass
-     * @throws MemoryCompilerException
+     * @param sourceClass the input source class
+     * @return sourceClass the output source class
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public SourceClass executeCompilation(SourceClass sourceClass) {
         try {
@@ -68,9 +68,9 @@ public class MemoryCompilerTask {
     /**
      * Create and execute a task to custom compiler for single SourceTask
      *
-     * @param sourceTask
-     * @return sourceTask
-     * @throws MemoryCompilerException
+     * @param sourceTask the input source task
+     * @return sourceTask the output source task
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public SourceTask executeCompilation(SourceTask sourceTask) {
         this.compiler.compile(sourceTask);
@@ -80,9 +80,11 @@ public class MemoryCompilerTask {
 
     /**
      * Set the class path
+     *
+     * @param classpath the input classpath
      */
-    public void setClassPath(String classpaths) {
-        this.compiler.setClassPath(classpaths);
+    public void setClassPath(String classpath) {
+        this.compiler.setClassPath(classpath);
     }
 
 }

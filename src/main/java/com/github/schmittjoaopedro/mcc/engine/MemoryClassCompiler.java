@@ -62,6 +62,8 @@ public class MemoryClassCompiler {
 
     /**
      * Initiate javaCompiler with class path
+     *
+     * @param classpath the input classpath
      */
     public MemoryClassCompiler(List<String> classpath) {
         this.pmd = new MemoryPMDValidator();
@@ -73,8 +75,8 @@ public class MemoryClassCompiler {
     /**
      * Try compile a singleSource class.
      *
-     * @param sourceClass
-     * @return sourceClass
+     * @param sourceClass the input source class
+     * @return sourceClass the output source class
      */
     public SourceClass compile(SourceClass sourceClass) {
         SourceTask temporarySourceTask = new SourceTask();
@@ -90,10 +92,10 @@ public class MemoryClassCompiler {
      * memory file manager and java file object to create the byte code
      * for each SourceClass.
      *
-     * @param sourceTask
+     * @param sourceTask the input source task
      *
-     * @return sourceTask
-     * @throws MemoryCompilerException
+     * @return sourceTask the output source task
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public SourceTask compile(SourceTask sourceTask) {
         if(!sourceTask.getSourcesClass().isEmpty()) {
@@ -120,9 +122,9 @@ public class MemoryClassCompiler {
     /**
      * Check PMD before compile
      *
-     * @param sourceClass
-     * @return sourceClasll
-     * @throws MemoryCompilerException
+     * @param sourceClass the input source class
+     * @return sourceClass the output source class
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public SourceClass checkAndCompile(SourceClass sourceClass) {
         this.pmd.check(sourceClass);
@@ -133,9 +135,8 @@ public class MemoryClassCompiler {
      * Check PMD for a list of classes before run compiler, if some class broke,
      * all process are stopped and a exception is thrown.
      *
-     * @param sourceTask
-     * @return sourceTasl
-     * @throws MemoryClassCompiler
+     * @param sourceTask the input source task
+     * @return sourceTask the output source task
      */
     public SourceTask checkAndCompile(SourceTask sourceTask) {
         this.pmd.check(sourceTask);
@@ -145,7 +146,7 @@ public class MemoryClassCompiler {
     /**
      * Set the class path and other arguments
      *
-     * @param classpath
+     * @param classpath the input classpath
      */
     public void setClassPath(String classpath) {
         this.classpath = Arrays.asList("-classpath", classpath);

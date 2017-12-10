@@ -32,9 +32,9 @@ public class SourceTask {
     /**
      * Add a valid source class in the batch list.
      *
-     * @param sourceClass
+     * @param sourceClass the input source class
      *
-     * @return added
+     * @return added the output is added
      */
     public Boolean addSourceClass(SourceClass sourceClass) {
         if(sourceClass.isValid()) {
@@ -49,9 +49,9 @@ public class SourceTask {
     /**
      * Create a class to be compiled
      *
-     * @param packageName
-     * @param className
-     * @param sourceCode
+     * @param packageName the input package name
+     * @param className the input class name
+     * @param sourceCode the input source code
      */
     public void createSourceClass(String packageName, String className, String sourceCode) {
         SourceClass sourceClass = new SourceClass(packageName, className, sourceCode);
@@ -66,8 +66,8 @@ public class SourceTask {
     /**
      * Remove a class of the batch list
      *
-     * @param packageName
-     * @param className
+     * @param packageName the input package name
+     * @param className the input class name
      */
     public void removeSourceClass(String packageName, String className) {
         String fullClassName = mountClassName(packageName, className);
@@ -79,8 +79,8 @@ public class SourceTask {
     /**
      * Returns a java source class of the batch list
      *
-     * @param fullClassName
-     * @return sourceJavaClass
+     * @param fullClassName the input full class name
+     * @return sourceJavaClass the output source java class
      */
     public SourceClass findSourceClass(String fullClassName) {
         return this.sourceClasses.get(fullClassName);
@@ -89,10 +89,10 @@ public class SourceTask {
     /**
      * Concat the class name, like: "java.util" + "." + "List" = "java.util.List"
      *
-     * @param packageName
-     * @param className
+     * @param packageName the input package name
+     * @param className the input class name
      *
-     * @return fullClassName
+     * @return fullClassName the output full class name
      */
     private String mountClassName(String packageName, String className) {
         return packageName + DOT + className;
@@ -101,7 +101,7 @@ public class SourceTask {
     /**
      * Return all source class objects
      *
-     * @return sourceClasses
+     * @return sourceClasses the output source classes
      */
     public List<SourceClass> getSourcesClass() {
         return new ArrayList<SourceClass>(this.sourceClasses.values());

@@ -60,7 +60,7 @@ public class OutputMemoryJavaFileObject extends ByteArrayOutputStream implements
     /**
      * This methods return the own reference, because this class is a OutputStream
      *
-     * @return this
+     * @return this the output stream
      */
     @Override
     public OutputStream openOutputStream() throws IOException {
@@ -121,8 +121,7 @@ public class OutputMemoryJavaFileObject extends ByteArrayOutputStream implements
     /**
      * Parse string class name to URI
      *
-     * @param className
-     * @return uri
+     * @param className the input class name
      */
     public void setUri(String className) {
         try {
@@ -136,7 +135,7 @@ public class OutputMemoryJavaFileObject extends ByteArrayOutputStream implements
      * This methods beyond close the OutputStream, too set the byte code generate to the
      * current compiled class, and reset the byte flag to restart the buffer.
      *
-     * @throws IOException
+     * @throws IOException throws a IOException
      */
     @Override
     public void close() throws IOException {

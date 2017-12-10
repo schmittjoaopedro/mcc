@@ -28,8 +28,8 @@ public class MccUtils {
     /**
      * Create a SourceClass object based on a sourceCode
      *
-     * @param sourceCode
-     * @return sourceClass
+     * @param sourceCode the input source code
+     * @return sourceClass the output source class
      */
     public static SourceClass extractSourceClassFromSourceCode(String sourceCode) {
         return new SourceClass(MccUtils.extractPackageFromSourceCode(sourceCode), MccUtils.extractClassNameFromSourceCode(sourceCode), sourceCode);
@@ -38,8 +38,8 @@ public class MccUtils {
     /**
      * Extract the package from source code
      *
-     * @param sourceCode
-     * @return package
+     * @param sourceCode the input source code
+     * @return package the output package
      */
     public static String extractPackageFromSourceCode(String sourceCode) {
 
@@ -55,8 +55,8 @@ public class MccUtils {
     /**
      * Extract the class name from source code
      *
-     * @param sourceCode
-     * @return className
+     * @param sourceCode the input source code
+     * @return className the output class name
      */
     public static String extractClassNameFromSourceCode(String sourceCode) {
 

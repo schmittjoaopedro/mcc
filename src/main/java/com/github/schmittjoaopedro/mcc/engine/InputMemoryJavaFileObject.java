@@ -39,8 +39,8 @@ public class InputMemoryJavaFileObject implements JavaFileObject {
      * Define a Java class name convention like "JavaClass.java" used to
      * execute the compilation.
      *
-     * @param sourceClass
-     * @throws IllegalArgumentException
+     * @param sourceClass The input source class
+     * @throws IllegalArgumentException throws a IllegalArgumentException
      */
     public InputMemoryJavaFileObject(SourceClass sourceClass) {
         this.sourceClass = sourceClass;
@@ -76,8 +76,8 @@ public class InputMemoryJavaFileObject implements JavaFileObject {
     /**
      * Return the source code as CharSequence
      *
-     * @return sourcecode
-     * @throws IOException
+     * @return sourcecode The source code of the class to be compiled
+     * @throws IOException throws a IOException
      */
     @Override
     public CharSequence getCharContent(boolean ignoreEncodingErrors) throws IOException {
@@ -129,8 +129,8 @@ public class InputMemoryJavaFileObject implements JavaFileObject {
     /**
      * Parse string class name to URI
      *
-     * @param url
-     * @return uri
+     * @param url the URL String
+     * @return uri the URI
      */
     private static URI parseToURITheUrl(String url) {
         try {

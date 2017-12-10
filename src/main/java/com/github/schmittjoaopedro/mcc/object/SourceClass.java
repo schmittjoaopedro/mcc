@@ -61,7 +61,7 @@ public class SourceClass {
      * Validate the source class, checks all necessary attributes required
      * by the compiler as: package name, class name and source code.
      *
-     * @return isValid
+     * @return isValid the output is valid
      */
     public Boolean isValid() {
         if( this.getPackageName() != null && !this.getPackageName().trim().equals("") &&
@@ -77,7 +77,7 @@ public class SourceClass {
      * Convert the class name in a file class name, add the prefix of .java.
      * The compiler required the .java extension.
      *
-     * @return javaFileClassName
+     * @return javaFileClassName the output java file class name
      */
     public String getJavaFileClassName() {
         return this.className + JAVA_EXT;
@@ -87,51 +87,78 @@ public class SourceClass {
      * Return the full className, combining the package name with className
      * ex: "java.util.List"
      *
-     * @return fullClassName
+     * @return fullClassName the output full class name
      */
     public String getFullClassName() {
         return this.getPackageName() + DOT + this.getClassName();
     }
 
     /**
-     * GETTERS AND SETTERS
+     * @return className the output class name
      */
     public String getClassName() {
         return className;
     }
 
+    /**
+     * @param className the input class name
+     */
     public void setClassName(String className) {
         this.className = className;
     }
 
+    /**
+     * @return packageName the output package name
+     */
     public String getPackageName() {
         return packageName;
     }
 
+    /**
+     * @param packageName the input package name
+     */
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
 
+    /**
+     * @return sourceCode the output source code
+     */
     public String getSourceCode() {
         return sourceCode;
     }
 
+    /**
+     * @param sourceCode the input source code
+     */
     public void setSourceCode(String sourceCode) {
         this.sourceCode = sourceCode;
     }
 
+    /**
+     * @return bytecode the output bytecode
+     */
     public byte[] getBytecode() {
         return bytecode;
     }
 
+    /**
+     * @param bytecode the input bytecode
+     */
     public void setBytecode(byte[] bytecode) {
         this.bytecode = bytecode;
     }
 
+    /**
+     * @return status the output status
+     */
     public MessageCompiler getStatus() {
         return status;
     }
 
+    /**
+     * @param status the input status
+     */
     public void setStatus(MessageCompiler status) {
         this.status = status;
     }

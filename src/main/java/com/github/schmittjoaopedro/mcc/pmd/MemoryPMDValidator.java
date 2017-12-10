@@ -60,8 +60,8 @@ public class MemoryPMDValidator {
      * Execute the PMD validation, if some class validation fail
      * then a MemoryCompilerException is thrown with the violations
      *
-     * @param sourceTask
-     * @throws MemoryCompilerException
+     * @param sourceTask the input source task
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public void check(SourceTask sourceTask) {
         for(SourceClass sourceClass : sourceTask.getSourcesClass()) {
@@ -73,8 +73,8 @@ public class MemoryPMDValidator {
      * Execute PMD validation for SourceClass, if the class fail,
      * then a MemoryCompilerException is thrown with the violations
      *
-     * @param sourceClass
-     * @throws MemoryCompilerException
+     * @param sourceClass the input source class
+     * @throws MemoryCompilerException throws a memory compiler exception
      */
     public void check(SourceClass sourceClass) {
 

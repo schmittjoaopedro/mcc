@@ -46,7 +46,7 @@ public class MemoryCompilerProvider {
     }
 
     /**
-     * @return compilerProvider
+     * @return compilerProvider the output compiler provider
      */
     public static MemoryCompilerProvider getInstance() {
         return MemoryCompilerProvider.INSTANCE;
@@ -55,7 +55,7 @@ public class MemoryCompilerProvider {
     /**
      * Release a compiler task
      *
-     * @param compilerTask
+     * @param compilerTask the input compiler task
      */
     public synchronized void putOnAvailableList(MemoryCompilerTask compilerTask) {
         this.unavailableCompiler.remove(compilerTask);
@@ -65,7 +65,7 @@ public class MemoryCompilerProvider {
     /**
      * Return the next available compiler
      *
-     * @return compilerTask
+     * @return compilerTask the output compiler task
      */
     public synchronized MemoryCompilerTask getAvailable() {
         if(!this.availableCompiler.isEmpty()) {
@@ -81,7 +81,7 @@ public class MemoryCompilerProvider {
     /**
      * Define the class path
      *
-     * @param classpath
+     * @param classpath the input classpath
      */
     public void setClasspath(String classpath) {
         this.allCompilers.forEach(item -> {

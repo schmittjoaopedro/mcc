@@ -26,7 +26,7 @@ public class StringDataSource implements DataSource {
     /**
      * Constructor with source code as argument
      *
-     * @param code
+     * @param code the input code
      */
     public StringDataSource(String code) {
         super();
@@ -36,7 +36,7 @@ public class StringDataSource implements DataSource {
     /**
      * Transform the string in a ByteArrayInputStream
      *
-     * @return inputStream
+     * @return inputStream the output input stream
      */
     @Override
     public InputStream getInputStream() throws IOException {
@@ -44,7 +44,11 @@ public class StringDataSource implements DataSource {
     }
 
     /**
-     * Return empty
+     * Returns empty
+     *
+     * @param shortNames the input short names
+     * @param inputFileName the input file name
+     * @return empty the output empty string
      */
     @Override
     public String getNiceFileName(boolean shortNames, String inputFileName) {
