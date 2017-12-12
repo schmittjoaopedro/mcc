@@ -41,11 +41,11 @@ A simple example of compilation using MCC is presented following:
 //Create a simple String with the Java source code
 String sourceCode = 
 	"package comp.test;" +
-    "public class Test {" + 
-    "    public String sayHello() {" +
-    "        return \"Hello World!\";" +
-    "    }" +
-    "}";
+	"public class Test {" + 
+	"    public String sayHello() {" +
+	"        return \"Hello World!\";" +
+	"    }" +
+	"}";
 
 //Create a object to encapsulate the source code
 SourceClass sourceClass = new SourceClass("comp.test", "Test", sourceCode);
@@ -75,13 +75,13 @@ SourceTask sourceTask = new SourceTask();
 //Creating some classes
 for(int i = 0; i < 10; i++) {
 	String sourceCode = 
-    	"package comp.test;" + 
-    	"public class Test" + i + " {" +
-        "	public String sayHello(Integer val) { " +
-        "		return val + \" - Hello World!\";" +
-        "	}" +
-        "}";
-    //Add the class to the source task
+		"package comp.test;" + 
+		"public class Test" + i + " {" +
+		"	public String sayHello(Integer val) { " +
+		"		return val + \" - Hello World!\";" +
+		"	}" +
+		"}";
+	//Add the class to the source task
 	sourceTask.createSourceClass("comp.test", "Test" + i, sourceCode);
 }
 
@@ -95,9 +95,9 @@ for(int i = 0; i < 10; i++) {
 	//Invoker the classes using reflection
 	SourceClass sourceClass = sourceTask.getSourcesClass().get(i);
 	Class loadedClass = classLoader.loadSourceClassLoader(sourceClass);
-    Object o = loadedClass.newInstance();
-    Method m = loadedClass.getDeclaredMethod("sayHello", Integer.class);
-    Assert.assertEquals(m.invoke(o, i), i + " - Hello World!");
+	Object o = loadedClass.newInstance();
+	Method m = loadedClass.getDeclaredMethod("sayHello", Integer.class);
+	Assert.assertEquals(m.invoke(o, i), i + " - Hello World!");
 }
 ```
 
