@@ -64,7 +64,7 @@ Method m = loadedClass.getDeclaredMethod("sayHello", null);
 Assert.assertEquals(m.invoke(o, null), "Hello World!");
 ```
 
-### Execute batch compilation
+### Executing batch compilation
 
 Compile one or more java classes in batch jobs, as the following example:
 
@@ -103,7 +103,7 @@ for(int i = 0; i < 10; i++) {
 
 ### Managing errors
 
-Obtain detailed information when errors are throw by compiler, as the following example:
+Obtaining detailed information when errors are throw by compiler, as the following example:
 
 ```java
 //Example of class with problem (returning int but declared as void)
@@ -128,5 +128,21 @@ try {
 	Assert.assertEquals(message.getDiagnostics().get(0).getPosition(), 61);
 	Assert.assertEquals(message.getDiagnostics().get(0).getStartPosition(), 61);
 	Assert.assertEquals(message.getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+}
+```
+
+### Managing PMD validations
+
+Obtaining detailed information when PMD errors are throw by compiler, look the following example:
+
+```java
+SourceClass sourceClass = new SourceClass();
+sourceClass.setPackageName("test");
+sourceClass.setClassName("Test");
+sourceClass.setSourceCode("package test; public class Test { private int t; }");
+try {
+	new MemoryPMDValidator().check(sourceClass);
+} catch(MemoryCompilerException ex) {
+	Assert.assertEquals(ex.getMessage(), "PMD_ERROR: PMD Validation failed\nTest : 1 : Avoid unused private fields such as 't'.\n");
 }
 ```
