@@ -22,8 +22,8 @@ public class SimpleCompilerTest {
     @Test
     public void simpleTest() throws Exception {
 
-        String sourceCode = "package comp.test; public class Teste { public String t() { return \"Hello World!\"; } };";
-        SourceClass sourceClass = new SourceClass("comp.test", "Teste", sourceCode);
+        String sourceCode = "package comp.test; public class Test { public String sayHello() { return \"Hello World!\"; } };";
+        SourceClass sourceClass = new SourceClass("comp.test", "Test", sourceCode);
         SourceClassLoader classLoader = new SourceClassLoader(getClass().getClassLoader());
 
         MemoryClassCompiler compiler = new MemoryClassCompiler();
@@ -32,14 +32,14 @@ public class SimpleCompilerTest {
         Class loadedClass = classLoader.loadSourceClassLoader(sourceClass);
 
         Object o = loadedClass.newInstance();
-        Method m = loadedClass.getDeclaredMethod("t", null);
+        Method m = loadedClass.getDeclaredMethod("sayHello", null);
         Assert.assertEquals(m.invoke(o, null), "Hello World!");
 
 
         Class loadedClass2 = classLoader.loadSourceClassLoader(sourceClass);
 
         Object o2 = loadedClass.newInstance();
-        Method m2 = loadedClass.getDeclaredMethod("t", null);
+        Method m2 = loadedClass.getDeclaredMethod("sayHello", null);
         Assert.assertEquals(m2.invoke(o, null), "Hello World!");
 
     }
@@ -50,8 +50,8 @@ public class SimpleCompilerTest {
         SourceTask sourceTask = new SourceTask();
 
         for(int i = 0; i < 10; i++) {
-            String sourceCode = "package comp.test; public class Teste" + i + " { public String t(Integer val) { return val + \" - Hello World!\"; } };";
-            sourceTask.createSourceClass("comp.test", "Teste" + i, sourceCode);
+            String sourceCode = "package comp.test; public class Test" + i + " { public String sayHello(Integer val) { return val + \" - Hello World!\"; } };";
+            sourceTask.createSourceClass("comp.test", "Test" + i, sourceCode);
         }
         MemoryClassCompiler compiler = new MemoryClassCompiler();
         compiler.checkAndCompile(sourceTask);
@@ -61,7 +61,7 @@ public class SimpleCompilerTest {
             SourceClass sourceClass = sourceTask.getSourcesClass().get(i);
             Class loadedClass = classLoader.loadSourceClassLoader(sourceClass);
             Object o = loadedClass.newInstance();
-            Method m = loadedClass.getDeclaredMethod("t", Integer.class);
+            Method m = loadedClass.getDeclaredMethod("sayHello", Integer.class);
             Assert.assertEquals(m.invoke(o, i), i + " - Hello World!");
         }
 
