@@ -118,15 +118,15 @@ try {
 } catch (MemoryCompilerException ex) {
 	MessageCompiler message = ex.getMessageCompiler();
 	Assert.assertNull(sourceClass.getBytecode());
-    Assert.assertEquals(message.getMessage(), "Error in compilation of class");
-    Assert.assertEquals(message.getStatus(), MessageStatus.FAILED);
-    Assert.assertEquals(message.getDiagnostics().get(0).getCode(), "compiler.err.prob.found.req");
-    Assert.assertEquals(message.getDiagnostics().get(0).getColumnNumber(), 62);
-    Assert.assertEquals(message.getDiagnostics().get(0).getEndPosition(), 62);
-    Assert.assertEquals(message.getDiagnostics().get(0).getLineNumber(), 1);
-    Assert.assertEquals(message.getDiagnostics().get(0).getMessage(null), "incompatible types: unexpected return value");
-    Assert.assertEquals(message.getDiagnostics().get(0).getPosition(), 61);
-    Assert.assertEquals(message.getDiagnostics().get(0).getStartPosition(), 61);
-    Assert.assertEquals(message.getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
+	Assert.assertEquals(message.getMessage(), "Error in compilation of class");
+	Assert.assertEquals(message.getStatus(), MessageStatus.FAILED);
+	Assert.assertEquals(message.getDiagnostics().get(0).getCode(), "compiler.err.prob.found.req");
+	Assert.assertEquals(message.getDiagnostics().get(0).getColumnNumber(), 62);
+	Assert.assertEquals(message.getDiagnostics().get(0).getEndPosition(), 62);
+	Assert.assertEquals(message.getDiagnostics().get(0).getLineNumber(), 1);
+	Assert.assertEquals(message.getDiagnostics().get(0).getMessage(null), "incompatible types: unexpected return value");
+	Assert.assertEquals(message.getDiagnostics().get(0).getPosition(), 61);
+	Assert.assertEquals(message.getDiagnostics().get(0).getStartPosition(), 61);
+	Assert.assertEquals(message.getDiagnostics().get(0).getKind(), Diagnostic.Kind.ERROR);
 }
 ```
