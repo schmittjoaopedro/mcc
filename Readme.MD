@@ -3,7 +3,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.schmittjoaopedro/mcc/badge.svg?style=flat)](http://mvnrepository.com/artifact/com.github.schmittjoaopedro/mcc)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The Memory Class Compiler (MCC) is a simple Java library used to compile Java classes in runtime.
+The Memory Class Compiler (MCC) is a simple Java library used to compile Java classes at runtime.
 
 ## Purpose
 
@@ -15,16 +15,16 @@ This software is available under [MIT license](https://opensource.org/licenses/M
 
 ## Technical Overview
 
-The software was wrote in [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html) and tested with the following versions of Java Development Toolkit (JDK): JDK 7, JDK 8 and JDK 9. There is only one requirement, the library needs the program to be running under a JDK, because only JDK grants access to the compiler API.
+The software was written in [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html) and tested with the following versions of Java Development Toolkit (JDK): JDK 7, JDK 8 and JDK 9. There is only one requirement, the library needs the program to be running under a JDK because only JDK grants access to the compiler API.
 
 The following features are available:
-*	A simple library that facilitate the access to JavaCompiler implementation of JDK.
-*	A simple library that facilitate the access to execute PMD validation in Java source code.
-*	A custom ClassLoader to load java source code compiled in runtime.
+*	A simple library that facilitates the access to JavaCompiler implementation of JDK.
+*	A simple library that facilitates the access to execute PMD validation in Java source code.
+*	A custom ClassLoader to load java source code compiled at runtime.
 
 ## Getting Started
 
-To start using MCC, first embed the library into your Java application via the following snippet
+To start using MCC, first, embed the library into your Java application via the following snippet
 ```xml
 <dependency>
     <groupId>com.github.schmittjoaopedro</groupId>
@@ -66,7 +66,7 @@ Assert.assertEquals(m.invoke(o, null), "Hello World!");
 
 ### Executing batch compilation
 
-This is a example compiling one or more java classes with batch jobs:
+This is an example compiling one or more Java classes with batch jobs:
 
 ```java
 //Create a source task to execute batch compilation
@@ -103,7 +103,7 @@ for(int i = 0; i < 10; i++) {
 
 ### Managing errors
 
-This is a simple example obtaining detailed information when errors are throw by compiler:
+This is a simple example obtaining detailed information when errors are thrown by the compiler:
 
 ```java
 //Example of class with problem (returning int but declared as void)
@@ -133,7 +133,7 @@ try {
 
 ### Managing PMD validations
 
-This is a simple example obtaining detailed information when PMD errors are throw by compiler:
+This is a simple example obtaining detailed information when PMD errors are thrown by the compiler:
 
 ```java
 SourceClass sourceClass = new SourceClass();
