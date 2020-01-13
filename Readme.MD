@@ -2,6 +2,7 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.schmittjoaopedro/mcc/badge.svg?style=flat)](http://mvnrepository.com/artifact/com.github.schmittjoaopedro/mcc)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/047d4f14540448e5a20b8548e732ec38)](https://www.codacy.com/manual/schmittjoaopedro/mcc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=schmittjoaopedro/mcc&amp;utm_campaign=Badge_Grade)
 
 The Memory Class Compiler (MCC) is a simple Java library used to compile Java classes at runtime.
 
